@@ -84,3 +84,37 @@ console.log([temp, typeof temp]) // got false
 
 temp = Boolean(undefined) 
 console.log([temp, typeof temp]) // got false
+
+
+
+// *****************************let's talk about operations now********************************
+console.log()
+console.log("operations")
+
+temp = 45
+let negTemp = -temp;
+console.log(negTemp) // will get -45
+
+// basic arthmetic operations
+console.log(2+2)
+console.log(2-2)
+console.log(2*2)
+console.log(2/2)
+console.log(2**3)
+console.log(22%3)
+
+// string concatenation
+console.log("harsh " + "dager")
+
+// now let's see some examples
+console.log("1" + 2)  // 12 (a string)
+console.log(1 + "2") // 12 ( a string)
+console.log("1" + 2 + 2) // 122 ( a string)
+console.log(1 + 2 + "2") // 32 ( a string)
+
+// conversion( but nobody uses in production )
+console.log(+true)
+console.log(+false)
+console.log(+"")
+console.log(+null)
+
