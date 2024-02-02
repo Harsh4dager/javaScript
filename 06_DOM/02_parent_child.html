@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parent-child RElation</title>
+</head>
+
+<body style="background-color: #212121; color: #fff">
+    <div class="parent">
+        <div id="day1" class="day">monday</div>
+        <div id="day2" class="day">tuesday</div>
+        <div id="day3" class="day">wednesday</div>
+        <div id="day4" class="day">thursday</div>
+    </div>
+</body>
+<script>
+    const parent = document.querySelector(".parent");
+    console.log(parent)
+
+    console.log(parent.children)
+    console.log(parent.children[0]) // 1st children
+
+    // innerHTML of parent's children
+    for (let i = 0; i < parent.children.length; i++) {
+        console.log(parent.children[i].innerHTML);
+    }
+
+    // can also get first child  and last child like this
+    console.log(parent.firstElementChild)
+    console.log(parent.lastElementChild)
+
+    // can also move from child to parent
+    const dayOne = document.querySelector(".day");
+    console.log(dayOne.parentElement)
+
+    // can also move to next sibling
+    console.log(dayOne.nextElementSibling)
+
+    // in DOM, next lines, comments etc are also counted in the tree structure
+    console.log(parent.childNodes) // got 9 ( 4 element nodes and 5 text nodes)
+
+</script>
+
+</html>

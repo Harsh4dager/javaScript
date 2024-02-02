@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<!-- every element is a nodelist  -->
+
+<body style="background-color: #212121; color: #fff">
+
+</body>
+<script>
+    const div = document.createElement("div");
+    console.log(div);
+    div.id = "main-div";
+    div.className = "main";
+    div.setAttribute("title", "nothing much");
+    // creating a textNode
+    const textNode = document.createTextNode("this is nothing important at all")
+    // appending this textNode to this div
+    div.appendChild(textNode)
+    div.style.color = "orange"
+    // till now we've created this element in our memory
+    // now let's put this element on the web page
+    document.body.appendChild(div)
+    div.style.backgroundColor = "green";
+
+    // adding 5 h1 using loop in this div
+    for (let i = 0; i < 5; i++) {
+        const h1 = document.createElement("h1")
+        h1.className = "div-item"
+        h1.id = ("h1" + i + 1)
+
+        const text = document.createTextNode("nothing special", i + 1);
+        h1.appendChild(text);
+        h1.style.color = "orange";
+
+        div.appendChild(h1);
+    }
+
+</script>
+
+</html>
