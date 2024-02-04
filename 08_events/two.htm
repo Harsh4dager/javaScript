@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: #414141; color: #fff;">
+    <h1>chai aur code</h1>
+    <button>Stop</button>
+</body>
+<script>
+    // setTimeOut, setInterval such functions are given to us by the browser for Asyn code
+    // these take a handler function and a timeout
+    setTimeout(function () {
+        console.log("harsh")
+    }, 1000) // will print harsh after 1 sec
+
+    // now let's try to change the h1 after 4 seconds of loading
+    const changH1 = function () {
+        document.querySelector('h1').innerHTML = "hey, how are u doin"
+    }
+    const timeoutId = setTimeout(changH1, 4000)
+
+    // now we can stop this setTiimeOut function if we don't want it to change using clearTimeout ( this takes a timeout id which is returned by te setTimeout function)
+    // let's say we want it to stop if a person clicks on the stop button
+    document.querySelector('button').addEventListener('click', () => {
+        clearTimeout(timeoutId)
+        console.log("changing prevented")
+    })
+</script>
+
+</html>

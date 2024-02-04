@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: #414141; color: #fff;">
+    <h1>chai aur javaScript</h1>
+    <button id="start">start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // setInterval(), it also take same 2 arguments as of setTimeout
+    // but it runs the callback function over and over again after the time given to it
+    const sayNameWithDate = function () {
+        console.log("harsh and the time is ", Date.now())
+    }
+    // now let's say we want to run setInterval when we click start button and stop it when we click stop button
+    let intervalId;
+    document.getElementById('start').addEventListener('click', () => {
+        intervalId = setInterval(sayNameWithDate, 1000)
+    })
+    document.getElementById('stop').addEventListener('click', () => {
+        clearInterval(intervalId)
+    })
+
+
+</script>
+
+</html>
