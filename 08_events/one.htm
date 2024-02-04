@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>htnml Events </title>
+</head>
+
+<body style="background-color: #414141; color: aliceblue;">
+        <h2>Amazing image</h2>
+        <div>
+                <ul id="images">
+                        <li><img width="200px" id="photoshop"
+                                        src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                                        alt="photoshop"></li>
+                        <li><img width="200px" id="japan"
+                                        src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                                        alt=""></li>
+                        <li><img width="200px" id="river"
+                                        src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                                        alt=""></li>
+                        <li><img width="200px" id="owl"
+                                        src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                                        alt=""></li>
+                        <li><img width="200px" id="prayer"
+                                        src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                                        alt=""></li>
+                        <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+                </ul>
+        </div>
+</body>
+<script>
+        // document.getElementById('river').onclick = () => alert("river is flowing")
+        // avoid using onlick, instead use events
+
+        // document.getElementById('river').addEventListener('click', () => {
+        //         alert("river is flowing")
+        // })
+
+        // // when we work on events, we get a event object
+        // document.getElementById('owl').addEventListener('click', (e) => {
+        //         //let's print this event object;
+        //         console.log(e) // we get a click object(this event have a lot of info like it's source, it's children , target, timestamp etc)
+        // })
+        // we need to study: time, timestame, preventDefault
+        //  target, toElement, srcElement, currentElement
+        // position related clentX, clientY, screenX, screenY
+        // altKey, cltKey, shiftKey, keyCode
+
+
+        // now let's talk about event propagation
+        // there are two context of event-propagation:
+        // 1. event bubbling: default and refer as false as 3rd parameter in addEventListener
+        // 2. event capturing: refer as true as 3rd parameter in addEventListener
+
+        // let's consider this example
+
+        // document.getElementById('images').addEventListener('click', (e) => {
+        //         console.log("inside the ul")
+        // })
+        // document.getElementById('japan').addEventListener('click', (e) => {
+        //         console.log("in japan")
+        //         e.stopPropagation(); // to stop bubbling
+        // })
+
+        // this is default case and refers to event bubbling if i click on japan img then firsty the event of japan got fired and then the event of ul(images) got fired;
+
+        // now let's see event capturing
+
+        // document.getElementById('images').addEventListener('click', (e) => {
+        //         console.log("inside the ul")
+        // }, true)
+        // document.getElementById('japan').addEventListener('click', (e) => {
+        //         console.log("in japan")
+        // }, true)
+
+        // now on clicking japan img the event of ul(images) got fired and then the japan event
+
+
+        // now we can also prevent the default working using preventDefault
+        // document.getElementById('google').addEventListener('click', e => {
+        //         e.preventDefault();
+        //         console.log("google is clicked")
+        //         e.stopPropagation(); // if we also want to stop bubling
+        // })
+
+        // let's try to remove each li, if we click on it
+        // document.querySelector("#images").addEventListener('click', e => {
+        //         const liToRemove = e.target.parentNode;
+        //         // liToRemove.remove() // we can directly remove it like this
+
+        //         // we can also remove this li through it's parent
+        //         liToRemove.parentNode.removeChild(liToRemove)
+        // })
+        // now there is a problem with the above code which is if i click on an img then it works but if i click on a li then the whole ul got removed so let's see better code
+        document.querySelector("#images").addEventListener('click', e => {
+                if (e.target.tagName === 'IMG') {
+                        let removeIt = e.target.parentNode;
+                        removeIt.remove()
+                }
+                if (e.target.tagName === 'LI') {
+                        let removeIt = e.target;
+                        removeIt.remove();
+                }
+
+        })
+
+
+</script>
+
+</html>
