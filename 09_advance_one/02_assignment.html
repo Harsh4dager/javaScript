@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>card</title>
+    <style>
+        body {
+            height: 100vh;
+            background: #212121;
+            color: white;
+            display: grid;
+            place-items: center;
+        }
+
+        .card {
+            width: 20%;
+            border-radius: 15px;
+            text-align: center;
+            background: rgb(209, 209, 209);
+            color: #212121;
+        }
+
+        .card h2 {
+            font-size: 32px;
+
+        }
+
+        .card p {
+            font-size: 25px;
+        }
+
+        .img img {
+            width: 100%;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <div class="img">
+
+        </div>
+        <div class="followers">
+            <h2>followers</h2>
+            <p></p>
+        </div>
+    </div>
+</body>
+<script>
+    const reqURL = 'https://api.github.com/users/harsh4dager';
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', reqURL);
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            const data = JSON.parse(xhr.responseText);
+            console.log(data)
+
+            // adding img
+            const imgParent = document.querySelector(".img");
+            imgParent.innerHTML = `<img src="${data.avatar_url}"></img>`;
+
+            // adding followers
+            const followerCount = document.querySelector(".followers p");
+            followerCount.textContent = `${data.followers}`;
+
+        }
+    }
+    xhr.send()
+</script>
+</body>
+
+</html>
