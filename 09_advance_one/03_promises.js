@@ -119,3 +119,6 @@ fetch('https://api.github.com/users/harsh4dager')
     console.log(data);
 })
 .catch(err => console.log(err))
+
+// if you see, you'll notice that this response is getting printed even before the above asyncronous tasks and it is because when we use fetch() the tasks got added to micro task queue which has somewhat more priority than that of the normal task queue
+
