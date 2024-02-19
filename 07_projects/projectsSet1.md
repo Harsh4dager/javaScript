@@ -1,9 +1,10 @@
 # Projects related to DOM
 
 ## project link
+
 [Click here](https://stackblitz.com/edit/dom-project-chaiaurcode?file=index.html)
 
-# Solution code
+## Solution code
 
 ## project 1
 
@@ -80,7 +81,6 @@ setInterval(function () {
 ```
 
 ## project 4 solution
-
 
 ```javascript
 
@@ -179,8 +179,7 @@ function newGame() {
 
 ```
 
-
-# Project 5 solution
+## Project 5 solution
 
 ```javascript
 const insert = document.getElementById('insert');
@@ -208,7 +207,7 @@ window.addEventListener('keydown', (e) => {
 
 ```
 
-# Project 6 Solution
+## Project 6 Solution
 
 ```javascript
 //generate a random color
